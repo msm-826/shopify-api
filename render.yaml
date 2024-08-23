@@ -7,7 +7,7 @@ databases:
 services:
   - type: web
     plan: free
-    name: mysite
+    name: shopifyBackend
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn shopify.asgi:application -k uvicorn.workers.UvicornWorker"
@@ -20,3 +20,5 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
+      - key: DEBUG
+        value: False
